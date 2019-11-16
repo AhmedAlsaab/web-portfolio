@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed a</title>
+<link rel="stylesheet" href="css/bulma.min.css">
+<link rel="stylesheet" href="css/material-design-iconic-font.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/slider.css">
+
+<script src="https://kit.fontawesome.com/4f207f3b95.js" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar is-light" >
+        <!-- Nabvar header -->
+        <header class="navbar-header" id="navbar-header">
+          
+          <button class="navbar-menu-mobile open is-size-3 is-hidden-desktop" id="navbar-menu-mobile">
+            <i class="zmdi zmdi-menu"></i>
+          </button>
+        </header>
+        <!-- Navbar container -->
+    
+          <ul class="navbar-container" id="navbar-container">
+            <li class="navbar-item">
+            <span class="icon is-medium">
+                    <i class="fas fa-home"></i>
+                </span>
+              <a data-scroll href="#top" id="inicio" class="navbar-a">Home</a>
+            </li>
+            <li class="navbar-item">
+                    <span class="icon is-medium">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+              <a data-scroll href="#about" id="acercaDe" class="navbar-a">About</a>
+            </li>
+            <li class="navbar-item">
+                    <span class="icon is-medium">
+                            <i class="fas fa-file-export"></i>
+                        </span>
+              <a data-scroll href="#projects" id="section" class="navbar-a">Projects</a>
+            </li>
+            <li class="navbar-item">
+                    <span class="icon is-medium">
+                            <i class="fas fa-images"></i>
+                        </span>
+              <a data-scroll href="#gallery" id="photos" class="navbar-a">Gallery</a>
+            </li>
+            
+          </ul>
+      
+      </nav>
+ 
+      <section id="heroBanner" class="hero is-fullheight is-bold ">
+            <div class="hero-body">
+              <div class="container">
+                    <div class="columns is-mobile is-centered">
+                        <div class="column is-8">
+                            <h1 class="title is-size-3-mobile is-size-2-tablet has-text-weight">AHMED ALSAAB</h1>
+                            </h1>
+                            <h5 class="subtitle is-size-6-mobile is-size-5-tablet separator has-text-primary">Aspiring Product Manager | Intern Developer & Tester</h5>
+                            <p class="bd-notification is-primary">Digital product planning and management at the highest representation and most excellent form, in my opinion, is the unification of stakeholders from all different backgrounds under one shared product vision, accomplishing such a feat is what I would consider true Art and indeed this is where my career aspirations lie. </p>
+                            <br>
+                            <p class="bd-notification is-primary">On this page, you can learn a bit more about me, view the projects I have worked on and see a comprehensive list of pictures taken over the years that represent some of the documentation, Agile team collab and design that went into these client projects.</p>
+                            <button class="button is-large" onclick="location.href= '#projects'" type="button">
+                                    <span class="icon is-medium">
+                                        <i class="fas fa-file-export"></i>
+                                    </span>
+                                    <span>View Projects</span>
+                                    </button>
+                    </div>
+                    
+                    <div class="column">
+                            <figure>
+                            <img src="img//IRt-5.png">
+                        </figure>
+                    </div>
+                  </div>
+                    
+              </div>
+            </div>
+        </section>
+
+
+       <!-- About me -->
+<div id="about" class="hero my-hero" style="--banner: url(../img/mountain.jpg); --bg-atachment: fixed;">
+  <div class="container">
+        <div class="columns is-multiline is-mobile is-vcentered ">
+         <div class="column is-half ">
+            <div class="about-me">
+              <figure class="image">
+                <img id="face" class="about-me-img" src="img/Face2.jpg" alt="">
+              </figure>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h1 id="aboutMeTitle" class="title is-size-3-mobile is-size-2-tablet has-text-weight">About Me</h1>
+            <h5 class="subtitle is-size-6-mobile is-size-5-tablet separator">Aspiring Product Manager | Intern Developer & Tester</h5>
+            <p class="text is-size-7-mobile">Over the last 3-4 years I have worked on a range of projects spanning 2-4 months each; developing MVP's for various entities/clients based on set requirements and principles, fully compliant with Agile methodologies. As such, I have established a good amount of familiarity and understanding in a great range of technologies relevant to the requirements gathered for the respective MVP through continues development iterations and refinements. In particular, I have worked on Databases (SQL), Backends (NodeJS, .NET, SpringBoot) and Frontends (React, Pure JS), namely end to end software development.
+            </p>
+            <p class="text is-size-7-mobile">
+              I would consider myself a decent programmer and a good problem solver, but I absolutely thrive at planning, gathering and interpreting requirements, effectively translating these functional and non functional requirements into realistic use cases, user stories and story boards; using analytics, data and deep research to support any decisions I propose and have proposed to the excellent teams I have worked with over the years; with an aim of driving the team forward to fully appreciate and understand the end-user/client and their respective product requirements.
+            </p>
+          </div>
+         
+        </div>
+      </div>
+</div>
+
+    <!-- projects -->
+    <section id="projects"> 
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+                <div class="card">
+                        <div class="card-content">
+                          <div class="media">
+                            
+                            <div class="media-content">
+                              <p class="title is-4">Intergrated Responsive Transport</p>
+                              <p class="subtitle is-6">Transport For Wales - Mobile Application</p>
+                            </div>
+                          </div>
+                          <div class="content">
+                                A cross-platform mobile app built to demonstrate responsive, dynamic and more accessible routes for public transport built for Transport for Wales and the Welsh Government in aims of tackling the inefficiency in Wales’ transport routes and the lack of public transport in rural areas. 
+                                The app supports transport booking, payment services such as PayPal, live transport tracking and more. 
+                          </div>
+                          <button class="button is-large is-link" onclick="location.href= 'https://github.com/AhmedAlsaab/IRT'" type="button">
+                                <span class="icon is-medium">
+                                  <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                              </button>
+                        </div>
+                      </div>
+                </div>
+        <div class="tile is-parent">
+                <div class="card">
+                        <div class="card-content">
+                          <div class="media">
+                            
+                            <div class="media-content">
+                              <p class="title is-4">Run My Process</p>
+                              <p class="subtitle is-6">Fujitsu - Mobile Application</p>
+                            </div>
+                          </div>
+                          <div class="content">
+                                An AR mobile app created for Fujitsu and designed for their managerial stakeholders to view on-going processes (progress, status, etc.) within a department in real-time in Augmented Reality. Users of the application are able to view and interact 
+                                with an augmented dashboard/interface that contains graphs, charts and analytical data that consumes API endpoints in real-time.  
+                            
+                          </div>
+                          <button class="button is-large is-link" onclick="location.href= 'https://github.com/AhmedAlsaab/RMP-Fujitsu'" type="button">
+                                <span class="icon is-medium">
+                                  <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                              </button>
+                        </div>
+                      </div>
+          
+        </div>
+        <div class="tile is-parent">
+                <div class="card">
+                        
+                        <div class="card-content">
+                          <div class="media">
+                            
+                            <div class="media-content">
+                              <p class="title is-4">Moodi</p>
+                              <p class="subtitle is-6">NHS - Web Application</p>
+                            </div>
+                          </div>
+                          <div class="content">
+                                An end-to-end web application built for clients that represent the NHS and designed for patients and GP’s. The web app allows patients to set, manage, track and rate activities based on their mood level. The data captured is then presented 
+                                to both the GP’s of the patient and the patient themselves in an analytical format (graphs/charts) on their personal dashboards.
+                    
+                          </div>
+                          <button class="button is-large is-link" onclick="location.href= 'https://github.com/AhmedAlsaab/Behavioural-App'" type="button">
+                                <span class="icon is-medium">
+                                  <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                              </button>
+                        </div>
+                      </div>
+                </div>
+        </div>
+    </section>
+
+<!-- Slideshow container -->
+    <div class="container" id="gallery">
+            <div class="columns is-multiline">
+            <div class="column has-text-centered is-full">
+                    <h1 class="title is-size-3-mobile is-size-1-tablet has-text-weight">Documentation, Collab & Design</h1>
+                    <h5 class="subtitle is-size-6">MVP related design, sample documentation and UX Goals</h5>
+            <div id="slider">
+            <a class="control_next">></a>
+            <a class="control_prev"><</a>
+            <ul>
+                <li class="imageList"><img src="img/poster.png"></li>
+                <li class="imageList"> <img src="img/agile-1.jpg"></li>
+                <li class="imageList"> <img src="img/agile-2.jpg"></li>
+                <li class="imageList"> <img src="img/Moodii.jpg"></li>
+                <li class="imageList"> <img src="img/ARDashboard.jpg"></li>
+                <li class="imageList"> <img src="img/ar-dev-choices.png"></li>
+                <li class="imageList"> <img src="img/ar-tech-choice.png"></li>
+                <li class="imageList"> <img src="img/use-case-1.png"></li>
+                <li class="imageList"> <img src="img/uxg.png"></li>
+                <li class="imageList"> <img src="img/bcase-2.jpg"></li>
+                <li class="imageList"> <img src="img/bcase-1.jpg"></li>
+                <li class="imageList"> <img src="img/db-design.jpg"></li>
+                <li class="imageList"> <img src="img/minimum-requirenements.png"></li>
+                <li class="imageList"> <img src="img/uat.png"></li>
+                <li class="imageList"> <img src="img/aggreement.png"></li>
+                <li class="imageList"> <img src="img/irt-app-10.png"></li>
+                <li class="imageList"> <img src="img/irt-app-2.png"></li>
+                <li class="imageList"> <img src="img/irt-app-3.png"></li>
+                <li class="imageList"> <img src="img/irt-app-4.png"></li>
+                <li class="imageList"> <img src="img/irt-app-5.png"></li>
+                <li class="imageList"> <img src="img/irt-app-6.png"></li>
+                <li class="imageList"> <img src="img/irt-app-7.png"></li>
+                <li class="imageList"> <img src="img/irt-app-8.png"></li>
+                <li class="imageList"> <img src="img/irt-app-9.png"></li>
+                <li class="imageList"> <img src="img/irt-app-1.png"></li>
+                </ul>  
+            </div>
+        </div>
+    </div>
+    </div>
+
+ 
+      <script = src="js/slider.js"></script>
+      
+      
+</body>
+
+</html>
