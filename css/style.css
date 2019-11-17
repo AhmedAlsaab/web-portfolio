@@ -338,6 +338,7 @@ template {
 	--dark: #252525;
 	--white: #ffffff;
 	--blue: #0ed4ff;
+	--link: #174287;
 }
 
 #heroBanner {
@@ -625,8 +626,6 @@ form {
 	border-color: none !important;
 }
 
-
-
 .facebook,
 .facebook:hover {
 	color: #3b5998 !important;
@@ -646,8 +645,6 @@ form {
 .instagram:hover {
 	color: #2c2c2c !important;
 }
-
-
 
 @media (max-width: 768px) {
 	.container {
@@ -743,4 +740,32 @@ figcaption {
 	.gallery-container {
 		grid-template-columns: repeat(4, 1fr);
 	}
+}
+
+.collapsible {
+	width: 100%;
+	text-align: left;
+	background-color: hsl(0, 0%, 21%);
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.codeContent {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.codeSpan {
+	float: right;
+}
+
+.activeCodeSection {
+	background-color: var(--danger);
+	color: white;
+}
+
+.button:focus {
+	color: white;
 }

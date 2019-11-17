@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai.min.css">
 <title>Ahmed a</title>
 <link rel="stylesheet" href="css/bulma.min.css">
 <link rel="stylesheet" href="css/material-design-iconic-font.css">
@@ -54,6 +56,12 @@
                         </span>
               <a data-scroll href="#gallery" id="photos" class="navbar-a">Gallery</a>
             </li>
+            <li class="navbar-item">
+                <span class="icon is-medium">
+                        <i class="fas fa-code"></i>
+                    </span>
+          <a data-scroll href="#codeSection" id="codeBtn" class="navbar-a">Code</a>
+        </li>
             
           </ul>
       
@@ -69,7 +77,7 @@
                             <h5 class="subtitle is-size-6-mobile is-size-5-tablet separator has-text-primary">Aspiring Product Manager | Intern Developer & Tester</h5>
                             <p class="bd-notification is-primary">Digital product planning and management at the highest representation and most excellent form, in my opinion, is the unification of stakeholders from all different backgrounds under one shared product vision, accomplishing such a feat is what I would consider true Art and indeed this is where my career aspirations lie. </p>
                             <br>
-                            <p class="bd-notification is-primary">On this page, you can learn a bit more about me, view the projects I have worked on and see a comprehensive list of pictures taken over the years that represent some of the documentation, Agile team collab and design that went into these client projects.</p>
+                            <p class="bd-notification is-primary">On this page you can learn a bit more about me, view the projects I have worked on, browse through a list of pictures that represent some of the documentation, Agile team collab and design that went into these client projects. At the end of the page I have highlighted snippets of the code I've written over the past few years. </p>
                             <button class="button is-large" onclick="location.href= '#projects'" type="button">
                                     <span class="icon is-medium">
                                         <i class="fas fa-file-export"></i>
@@ -94,6 +102,7 @@
 <div id="about" class="hero my-hero" style="--banner: url(../img/mountain.jpg); --bg-atachment: fixed;">
   <div class="container">
         <div class="columns is-multiline is-mobile is-vcentered ">
+          
          <div class="column is-half ">
             <div class="about-me">
               <figure class="image">
@@ -117,6 +126,8 @@
 
     <!-- projects -->
     <section id="projects"> 
+        <h1 class="title is-size-3-mobile is-size-2-tablet has-text-weight has-text-centered">Client Projects</h1>
+        <h5 class="subtitle is-size-6-mobile is-size-5-tablet has-text-centered">Projects developed as solutions/MVP's for clients based on set requirements </h5>
       <div class="tile is-ancestor">
         <div class="tile is-parent">
                 <div class="card">
@@ -124,8 +135,9 @@
                           <div class="media">
                             
                             <div class="media-content">
-                              <p class="title is-4">Intergrated Responsive Transport</p>
+                              <p class="title is-4">Integrated Responsive Transport</p>
                               <p class="subtitle is-6">Transport For Wales - Mobile Application</p>
+                              <p class="subtitle is-7">Full Stack Developer</p>
                             </div>
                           </div>
                           <div class="content">
@@ -149,6 +161,8 @@
                             <div class="media-content">
                               <p class="title is-4">Run My Process</p>
                               <p class="subtitle is-6">Fujitsu - Mobile Application</p>
+                              <p class="subtitle is-7">Full Stack Developer</p>
+
                             </div>
                           </div>
                           <div class="content">
@@ -175,6 +189,8 @@
                             <div class="media-content">
                               <p class="title is-4">Moodi</p>
                               <p class="subtitle is-6">NHS - Web Application</p>
+                              <p class="subtitle is-7">Full Stack Developer</p>
+
                             </div>
                           </div>
                           <div class="content">
@@ -234,10 +250,887 @@
         </div>
     </div>
     </div>
+    <section class="codeSections" id="codeSection">
+      <div class="container">
+          <div class="columns is-multiline">
+              <div class="column has-text-centered is-full">
+            <h1 class="title is-size-3-mobile is-size-2-tablet has-text-weight">Code Samples</h1>
+            <h5 class="subtitle is-size-6-mobile is-size-5-tablet">Collection of some of the code I have written over the years</h5>
+              </div>
+              <div class="column is-full">
+                  <button type="button" class="collapsible button is-large">
+                      <span class="codeSpan icon is-medium">
+                        <i class="fas fa-code"></i>
+                      </span>
+                      Test Automation Framework - Work
+                    </button>
+                    <div class="codeContent">
+                    <pre>
+                      <h5 class="is-size-6-mobile is-size-5-tablet is-link"> UserDetails.cs - Test Data Class</h5>
+                      <code class="csharp">
+                          public class UserDetails : DriverLogic
+                          {
+                              
+                              ExcelFileReader excelFileReader = new ExcelFileReader();
+                      
+                              // User Details (1st form)
+                              public void UserDetailsInput(int row, int sheetNum)
+                              {
+                                  
+                                  System.Diagnostics.Debug.WriteLine("STARTING QUOTE AND CHECKING FOR USER DETAILS\n");
+                      
+                                  WaitForPageLoad();
+                      
+                                      // Contact Name
+                                      string checkForContactName = excelFileReader.ExcelLookup(2, row, sheetNum);
+                                      string contactName = "ContactName";
+                                      WebdriverOperations(contactName, 4, checkForContactName);
+                      
+                                      // Email
+                                      string checkForEmail = excelFileReader.ExcelLookup(3, row, sheetNum);
+                                      string email = "Email";
+                                      WebdriverOperations(email, 4, checkForEmail);
+                              }
+                          }                      
+                      </code>
+                      <h5 class="is-size-6-mobile is-size-5-tablet is-link"> DriverLogic.cs - Logic Service </h5>
+                      <code class="csharp">
+                          public IWebElement FindByXpath(string elementLocation)
+                          {
+                              var waitForElementToLoad = new WebDriverWait(chrome, TimeSpan.FromSeconds(secondsToWait));
+                              IWebElement elementXpath = waitForElementToLoad.Until(SE.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(elementLocation)));
+                              return elementXpath;
+                          }
+                  
+                          public IWebElement FindById(string elementLocation)
+                          {
+                              var waitForElementToLoad = new WebDriverWait(chrome, TimeSpan.FromSeconds(secondsToWait));
+                              IWebElement elementByID = waitForElementToLoad.Until(SE.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(elementLocation)));
+                              return elementByID;
+                          }
+                  
+                         
+                          public void WebdriverOperations(string elementLocation, int methodToUse, string whatToSend = "")
+                          {
+                  
+                              try
+                              {
+                                  switch (methodToUse)
+                                  {
+                                      // Find By Xpath and Click
+                                      case 1:
+                                          FindByXpath(elementLocation).Click();
+                                          Assert.IsTrue(FindByXpath(elementLocation).Displayed);
+                                          break;
+                  
+                                      // Find By Xpath and Send Keys (Type into field)
+                                      case 2:
+                                          FindByXpath(elementLocation).SendKeys(whatToSend);
+                                          Assert.AreEqual(FindByXpath(elementLocation).GetAttribute("value"), whatToSend);
+                  
+                                          System.Diagnostics.Debug.WriteLine("!!!!!!!ASSESSING!!!!!!!!");
+                                          System.Diagnostics.Debug.WriteLine("Value", FindByXpath(elementLocation).GetAttribute("value"));
+                                          System.Diagnostics.Debug.WriteLine("What To Send", whatToSend);
+                                          break;
+                  
+                                      // Find By Xpath, Scroll into view and Click
+                                      case 3:
+                                          ((IJavaScriptExecutor)chrome).ExecuteScript("arguments[0].scrollIntoView(true);", FindByXpath(elementLocation));
+                                          ((IJavaScriptExecutor)chrome).ExecuteScript("arguments[0].click();", FindByXpath(elementLocation));
+                                          break;
+                  
+                                      // Find By ID and Send Keys
+                                      case 4:
+                                          FindById(elementLocation).SendKeys(whatToSend);
+                                          Assert.AreEqual(FindById(elementLocation).GetAttribute("value"), whatToSend);
+                                          System.Diagnostics.Debug.WriteLine("The data has matched the expected input\n", whatToSend);
+                                          break;
+                  
+                                      // Find by ID and Click
+                                      case 5:
+                                          FindById(elementLocation).Click();
+                                          Assert.IsTrue(FindById(elementLocation).Displayed);
+                                          break;
+                  
+                                      // Find By ID and Pick Date
+                                      case 6:
+                                          ((IJavaScriptExecutor)chrome).ExecuteScript("arguments[0].scrollIntoView(true);", FindById(elementLocation));
+                                          ((IJavaScriptExecutor)chrome).ExecuteScript("document.getElementById('" + elementLocation + "').setAttribute('value', '" + whatToSend + "')");
+                                          break;
+                                  }
+                              }
+                              catch (Exception e)
+                              {
+                                  System.Diagnostics.Debug.Write("ELEMENT NOT FOUND\n", elementLocation);
+                              }
+                          }
+                      </code>
+                      <h5 class="is-size-6-mobile is-size-5-tablet is-link"> AutomationOrdered.cs - TestFixture</h5>
+                        <code class="csharp">
+                            namespace AutomationTest.TestSuite.TestCases
+                            {
+                            
+                                // Automation of web forms
+                            
+                                [TestFixture]
+                                public class AutomationOrdered : DriverLogic
+                                {
+                                    // Change row to specify which record to automate
+                                    readonly int rowNum = 3;
+                            
+                                    // Change to 1 for PL, 2 for PI and 3 for Small Businesses 
+                                    readonly int sheetNum = 3;
+                            
+                            
+                                    [OneTimeSetUp]
+                                    public void SetUp()
+                                    {
+                                        SetupAndPrepareChromeDriver(sheetNum);
+                                    }
+                            
+                                    [Test, Order(1)]
+                                    public void ShortForm()
+                                    {
+                            
+                                        UserDetails userDetails = new UserDetails();
+                                        userDetails.UserDetailsInput(rowNum, sheetNum);
+                                    }
+                                  }
+                                }
+                        </code>
+                    </pre>
+    </div>
+       </div>
+              <div class="column is-full">
+              <button type="button" class="collapsible button is-large">
+                <span class="codeSpan icon is-medium">
+                  <i class="fas fa-code"></i>
+                </span>
+                Tracking Driver - IRT
+              </button>
+              <div class="codeContent">
+                
+                  <pre>
+                    <h5 class="is-size-6-mobile is-size-5-tablet is-link"> server.js</h5>
+                    <code class="js">
+                        const io = require('socket.io').listen(server);
 
- 
-      <script = src="js/slider.js"></script>
-      
+                        let driverSocket = null;
+                        let passengerSocket = null;
+                        
+                        // Driver & Passenger sockets
+                        io.on('connection', (socket) => {
+                          console.log('a user connected');
+                          socket.on('trackVehicle', (x) => {
+                            passengerSocket = socket;
+                            console.log('Passenger tracking vehicle');
+                          });
+                        
+                          socket.on('driverLocation', (driverLocation) => {
+                            passengerSocket.emit('driverLocation', driverLocation);
+                          });
+                        
+                          socket.on('connectDriver', () => {
+                            console.log('Driver has connected');
+                            driverSocket = socket;
+                          });
+                        });
+                    </code>
+                  </pre>
+                  <pre>
+                      <h5 class="is-size-6-mobile is-size-5-tablet is-link"> RouteScreen.js - Driver Side</h5>
+                    <code class="js">
+                        componentDidMount = async () => {
+                          this.fetchData();
+                          this.openDriverSocket();
+                          this._getLocationAsync();
+                        };
+                      
+                        // Get location permission
+                        _getLocationAsync = async () => {
+                          let { status } = await Permissions.askAsync(Permissions.LOCATION);
+                          if (status !== 'granted') {
+                            this.setState({
+                              locationResult: 'Permission to access location was denied'
+                            });
+                          }
+                          // Get driver location
+                          let location = await Location.getCurrentPositionAsync({});
+                          this.setState({
+                            locationResult: location,
+                            latDriver: location.coords.latitude,
+                            longDriver: location.coords.longitude,
+                            hasData: true
+                          });
+                          console.log(location);
+                        };
+                      
+                        // Driver Socket
+                        // Subscribes to socket when component is mounted
+                        async openDriverSocket() {
+                          this.socket = socketIO.connect(`http://${ip}:3000`);
+                          this.socket.on('connect', () => {
+                            console.log('driver client connected');
+                            this.socket.emit('connectDriver');
+                          });
+                        }
+
+                        // Foreground Tracking - Works & in use
+                          // Emits to socket new coordinates every 3 seconds
+                          trackDriverLocationForeground = async () => {
+                            let locationWatch = await Location.watchPositionAsync(
+                              {
+                                // Track location changes at the specified distance and time interval
+                                accuracy: Location.Accuracy.High,
+                                timeInterval: 3000,
+                                distanceInterval: 5
+                              },
+                              (loc) => {
+                                // with each location change emit the new location to the driverLocation socket
+                                if (loc.timestamp) {
+                                  this.socket.emit('driverLocation', {
+                                    latitude: loc.coords.latitude,
+                                    longitude: loc.coords.longitude
+                                  });
+                                  this.setState({
+                                    latDriver: loc.coords.latitude,
+                                    longDriver: loc.coords.longitude
+                                  });
+                                } else {
+                                  //log error
+                                }
+                                console.log(loc);
+                              }
+                            );
+                            this.setState({
+                              driverStartedRoute: true
+                            });
+                          };
+
+                    </code>
+                  </pre>
+                  <pre>
+                      <h5 class="is-size-6-mobile is-size-5-tablet is-link"> TrackDriver.js - Passenger Side</h5>
+                      <code class="js">// Socket connection -- connecting passengers to a vehicle tracking socket in the server
+                      // Retrieving data from the driver side via the driver to passenger socket
+                      async checkDriver() {
+                        const socket = socketIO.connect(`http://${ip}:3000`);
+                        socket.on('connect', () => {
+                          console.log('client connected');
+                          socket.emit('trackVehicle');
+                        });
+                    
+                        socket.on('driverLocation', (driverLocation) => {
+                          const pointCoords = [ ...this.state.pointCoords, driverLocation ];
+                          const { latitude, longitude } = this.props.navigation.state.params;
+                          this.setState({
+                            isDriverOnTheWay: true,
+                            driverLocation: driverLocation
+                          });
+                    
+                          // Check if the driver's (point) position is within x amount of metre from user's position
+                          let isNearby = geolib.isPointInCircle(
+                            // Vehicle Position
+                            { latitude: driverLocation.latitude, longitude: driverLocation.longitude },
+                            // Point/User Position (checking if above has entered region below)
+                            { latitude: this.state.lat, longitude: this.state.long },
+                            // Radius in metre
+                            20
+                          );
+                          // If if it's true or false, set state and distance
+                          if (isNearby === true) {
+                            let distance = geolib.getDistance(
+                              // User Position
+                              { latitude: driverLocation.latitude, longitude: driverLocation.longitude },
+                              // Point Position
+                              { latitude, longitude }
+                            );
+                            this.setState({
+                              withinRadius: 'Yes',
+                              Distance: distance
+                            });
+                            console.log('ENTERED REGION', distance);
+                            this.sendPushNotification();
+                          } else {
+                            this.setState({
+                              withinRadius: 'No',
+                              Distance: 'Unknown'
+                            });
+                          }
+                        });
+                      }</code>
+                    </pre>
+                
+              </div>
+              
+            </div> 
+            <!-- end of first collapsible -->
+            <div class="column is-full">
+                <button type="button" class="collapsible button is-large">
+                    <span class="codeSpan icon is-medium">
+                      <i class="fas fa-code"></i>
+                    </span>
+                    Push Notifications - IRT
+                  </button>
+                  <div class="codeContent">
+                    <pre>
+                        <h5 class="is-size-6-mobile is-size-5-tablet is-link">TrackDriver.js</h5>
+                      <code class="js">
+                      componentDidMount() {
+                            this.checkDriver();
+                            // Channel for popup notifications
+                            if (Platform.OS === 'android') {
+                              Expo.Notifications.createChannelAndroidAsync('reminders', {
+                                name: 'Reminders',
+                                priority: 'max',
+                                vibrate: [ 0, 250, 250, 250 ]
+                              });
+                            }
+                          }
+                        
+                          async componentWillMount() {
+                            await this._getLocationAsync();
+                            await this.registerForPushNotificationsAsync();
+                          }
+                        
+                          registerForPushNotificationsAsync = async () => {
+                            const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+                            let finalStatus = existingStatus;
+                        
+                            // only ask if permissions have not already been determined, because
+                            // iOS won't necessarily prompt the user a second time.
+                            if (existingStatus !== 'granted') {
+                              // Android remote notification permissions are granted during the app
+                              // install, so this will only ask on iOS
+                              const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+                              finalStatus = status;
+                            }
+                        
+                            // Stop here if the user did not grant permissions
+                            if (finalStatus !== 'granted') {
+                              return;
+                            }
+                        
+                            // Get the token that uniquely identifies this device
+                            let token = await Notifications.getExpoPushTokenAsync();
+                            this.setState({
+                              deviceToken: token
+                            });
+                            console.log(token);
+                          };
+                        
+                          // Sends the notification to the server hosted by EXPO specifically for push notifications
+                          // The server sends the noification back with the specfied values (fetched from the indicated state)
+                          // Sends it to the provided GCM / Device Token
+                          sendPushNotification = () => {
+                            let response = fetch('https://exp.host/--/api/v2/push/send', {
+                              method: 'POST',
+                              headers: {
+                                Accept: 'application/json',
+                                'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify({
+                                to: `${this.state.deviceToken}`,
+                                sound: 'default',
+                                title: 'Your transport is nearby!',
+                                priority: 'high',
+                                body: `Service 43 will be at ${this.state.pickupLocation} in ${this.state.Distance} meters`, // insert service number, pickup location
+                                sound: 'default', // android 7.0 , 6, 5 , 4
+                                channelId: 'reminders', // android 8.0 later
+                                icon: '../../assets/images/Notification_Icon_3.png'
+                              })
+                            });
+                          };
+                      </code>
+                    </pre>
+                  </div>
+            </div>
+            <div class="column is-full">
+                <button type="button" class="collapsible button is-large">
+                    <span class="codeSpan icon is-medium">
+                      <i class="fas fa-code"></i>
+                    </span>
+                    Google Maps Routes via API - IRT
+                  </button>
+                  <div class="codeContent">
+                    <pre>
+                        <h5 class="is-size-6-mobile is-size-5-tablet is-link">RouteScreen.js</h5>
+                      <code class="js">
+                          // Get the coordiante of the the start, end and waypoint coordinates, so the data can be
+                          // Place on Google Maps so the driver will know where to go
+                          fetchData = async () => {
+                            const coordinate = await getRequestAuthorized(
+                              `http://${ip}:3000/driver/schedule?id=${this.props.navigation.state.params.id}`
+                            );
+                        
+                            for (let i = 0; i < coordinate.length; i++) {
+                              const element = coordinate[i];
+                        
+                              switch (element.fk_coordinate_type_id) {
+                                case 1:
+                                  this.setState({
+                                    startCoords: { latitude: element.latitude, longitude: element.longitude }
+                                  });
+                                  break;
+                        
+                                case 2:
+                                  this.setState({
+                                    endCoords: { latitude: element.latitude, longitude: element.longitude }
+                                  });
+                                  break;
+                        
+                                case 3:
+                                  this.setState({
+                                    data: [ ...this.state.data, element ]
+                                  });
+                                  break;
+                              }
+                            }
+                          };
+
+                          render() {
+                            let driverMarker = null;
+                            // Update the bus icon with the new location changes on the map by passing the locations to the marker
+                            if (this.state.driverStartedRoute) {
+                              driverMarker = (
+                                // .. code ommited
+                              );
+                            }
+                        
+                            // MapViewDirections is a library
+                            // the 'data' array is passed in as waypoints
+                            // 'data' array contains coordinates retrieved from the database that act as pickup locations
+                            return (
+                              // ... code ommited
+                                  styl={StyleSheet.absoluteFill}
+                                  ref={(c) => (this.mapView = c)}
+                                  onPress={this.onMapPress}
+                                >
+                                  {/* Setting waypoints on the map */}
+                                  {this.state.data.map((stop) => (
+                                    <Marker
+                                      pinColor={'green'}
+                                      key={uuid()}
+                                      coordinate={{ latitude: stop.latitude, longitude: stop.longitude }}
+                                      title={`${stop.street}, ${stop.city}`}
+                                      description={`Passengers: ${stop.no_of_passengers.toString()}`}
+                                    />
+                                  ))}
+                        
+                                  {/* Setting start location on the map */}
+                                  {this.state.startCoords !== null && (
+                                    <MapView.Marker
+                                      pinColor="rgba(46, 49, 50, 0.5)"
+                                      key={uuid()}
+                                      coordinate={this.state.startCoords}
+                                      title={'Predefined Stop'}
+                                      description={'Start destination of the service'}
+                                    />
+                                  )}
+                        
+                                  {/* Setting end location on the map */}
+                                  {this.state.endCoords !== null && (
+                                    <MapView.Marker
+                                      pinColor="rgba(46, 49, 50, 0.5)"
+                                      key={uuid()}
+                                      coordinate={this.state.endCoords}
+                                      title={'Predefined Stop'}
+                                      description={'End destination of the service'}
+                                    />
+                                  )}
+                                  {this.state.data.length >= 1 && (
+                                    <MapViewDirections
+                                      origin={this.state.startCoords}
+                                      waypoints={this.state.data}
+                                      destination={this.state.endCoords}
+                                      apikey={API_KEY}
+                                      strokeWidth={4}
+                                      strokeColor="rgba(253, 113, 103, 1)"
+                                      optimizeWaypoints={true}
+                                      onStart={(params) => {
+                                        console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+                                      }}
+                                      onReady={(result) => {
+                                        this.setState({
+                                          distance: result.distance,
+                                          duration: result.duration,
+                                          xMapCoords: result.coordinates
+                                        });
+                        
+                                        this.mapView.fitToCoordinates(result.coordinates, {
+                                          edgePadding: {
+                                            right: width / 20,
+                                            bottom: height / 20,
+                                            left: width / 20,
+                                            top: height / 20
+                                          }
+                                        });
+                                      }}
+                                      onError={(errorMessage) => {
+                                        // console.log('GOT AN ERROR');
+                                      }}
+                                    />
+                                  )}
+                                  {driverMarker}
+                              // .. code ommited
+                            );
+                      </code>
+                    </pre>
+                  </div>
+            </div>
+            <div class="column is-full">
+                <button type="button" class="collapsible button is-large">
+                    <span class="codeSpan icon is-medium">
+                      <i class="fas fa-code"></i>
+                    </span>
+                    Journey Booking through SQL Transaction API - IRT
+                  </button>
+                  <div class="codeContent">
+
+              <pre>
+                  <h5 class="is-size-6-mobile is-size-5-tablet is-link">Server.js</h5>
+                <code class="js">
+                    API to book a journey
+                    // Ensures that no duplicate coordinates in the same journey are persisted to the database
+                    app.post('/booking/book', (req, res) => {
+                      const {
+                        place_id,
+                        street,
+                        city,
+                        country,
+                        lat,
+                        lng,
+                        startType,
+                        date,
+                        time,
+                        numPassenger,
+                        numWheelchair,
+                        returnTicket
+                      } = req.body.jData;
+                      const { jId } = req.body;
+                    
+                      // Starts an SQL transaction
+                      connection.beginTransaction((err) => {
+                        if (err) throw error;
+                    
+                        connection.query(
+                          'SELECT * FROM coordinate WHERE fk_journey_id = ? AND place_id = ?',
+                          [ jId, place_id ],
+                          (error, row, fields) => {
+                            if (error) {
+                              return connection.rollback(function() {
+                                throw error;
+                              });
+                            }
+                    
+                            new Promise((resolve, reject) => {
+                              if (row.length >= 1) {
+                                if (row[0].removed === 1) {
+                                  connection.query(
+                                    'UPDATE coordinate SET removed = 0 WHERE coordinate_id = ?',
+                                    [ row[0].coordinate_id ],
+                                    (error, row1, fields) => {
+                                      if (error) {
+                                        return connection.rollback(function() {
+                                          throw error;
+                                        });
+                                      }
+                                      return resolve(row[0].coordinate_id);
+                                    }
+                                  );
+                                } else return resolve(row[0].coordinate_id);
+                              } else {
+                                connection.query(
+                                  'INSERT INTO coordinate (place_id, street, city, country, latitude, longitude, fk_coordinate_type_id, fk_journey_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                                  [ place_id, street, city, country, lat, lng, startType, jId ],
+                                  (error, row1, fields) => {
+                                    if (error) {
+                                      return connection.rollback(function() {
+                                        throw error;
+                                      });
+                                    }
+                                    return resolve(row1.insertId);
+                                  }
+                                );
+                              }
+                            })
+                              .then((id) => {
+                                connection.query(
+                                  'SELECT coordinate_id AS id FROM coordinate WHERE fk_journey_id = ? AND fk_coordinate_type_id = 2',
+                                  [ jId ],
+                                  (error, row4, fields) => {
+                                    if (error) {
+                                      return connection.rollback(function() {
+                                        throw error;
+                                      });
+                                    }
+                    
+                                    connection.query(
+                                      'INSERT INTO ticket (no_of_passengers, no_of_wheelchairs, returnTicket, used, expired, date_of_journey, time_of_journey, date_created, fk_coordinate_id_to, fk_coordinate_id_from) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                                      [
+                                        numPassenger,
+                                        numWheelchair,
+                                        returnTicket,
+                                        0,
+                                        0,
+                                        date,
+                                        time,
+                                        new Date(),
+                                        row4[0].id,
+                                        id
+                                      ],
+                                      (error, row2, fields) => {
+                                        if (error) {
+                                          return connection.rollback(function() {
+                                            throw error;
+                                          });
+                                        }
+                    
+                                        connection.query(
+                                          'INSERT INTO user_journey (fk_journey_id, fk_user_id, fk_ticket_id, paid) VALUES (?, ?, ?, ?)',
+                                          [ jId, req.userId, row2.insertId, 1 ],
+                                          (error, row3, fields) => {
+                                            if (error) {
+                                              return connection.rollback(function() {
+                                                throw error;
+                                              });
+                                            }
+                    
+                                            connection.commit((err) => {
+                                              if (err) {
+                                                return connection.rollback(() => {
+                                                  throw err;
+                                                });
+                                              }
+                                            });
+                                          }
+                                        );
+                                      }
+                                    );
+                                  }
+                                );
+                              })
+                              .catch((error) => {
+                                throw error;
+                              });
+                          }
+                        );
+                      });
+                    });
+                </code>
+              </pre>
+              </div>
+            </div>
+
+            <div class="column is-full">
+                <button type="button" class="collapsible button is-large">
+                    <span class="codeSpan icon is-medium">
+                      <i class="fas fa-code"></i>
+                    </span>
+                    Activity Creation MVC - Moodi
+                  </button>
+                  <div class="codeContent">
+		            <pre>
+                  <h5 class="is-size-6-mobile is-size-5-tablet is-link"> PatientActivities.java - Controller </h5>
+                  <code class="java">
+                      @RequestMapping(path = "{id}/activities/create", method = RequestMethod.POST)
+                      public ModelAndView createActivity(@PathVariable long id, @RequestParam final String activityName, @RequestParam final String date, @RequestParam final String time) throws ParseException {
+                          //Source adapted from https://stackoverflow.com/questions/4496359/how-to-parse-date-string-to-date
+                          DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm");
+                  
+                          activityCreationService.createActivity(1, activityName, dateFormat.parse(date + " " + time));
+                  
+                          return new ModelAndView("redirect:/patient/activities/1");
+                      }
+                  </code>
+                  
+                  <h5 class="is-size-6-mobile is-size-5-tablet is-link"> ActivityCreationService.java - Service</h5>
+                  <code class ="java">
+                      @Service
+                      public class ActivityCreationService {
+                      
+                          @Autowired
+                          public ActivityCreationService(IActivityCreationRepository activityCreationRepository) {
+                              this.activityCreationRepository = activityCreationRepository;
+                          }
+                      
+                          private IActivityCreationRepository activityCreationRepository;
+                      
+                          public void createActivity(long patientID, String activityName, Date date) {
+                              activityCreationRepository.createActivity(patientID, activityName, date);
+                          }
+                      }
+                  </code>
+                  <h5 class="is-size-6-mobile is-size-5-tablet is-link"> Activities.java - Entity</h5>
+                  <code class="java">
+                      @Entity
+                      @Table(name = "activities")
+                      public class Activities {
+                      
+                          @Id
+                          @GeneratedValue(strategy = GenerationType.AUTO)
+                          @Column(name = "activity_ID")
+                          public Long id;
+                      
+                          @Column(name = "activity_name")
+                          public String name;
+                      
+                          @Column(name = "activity_date")
+                          public LocalDateTime activityDate;
+                      
+                          @Column(name="is_completed")
+                          public Boolean isCompleted;
+                      
+                          @Column(name="rating_before")
+                          public Long ratingBefore;
+                      
+                          @Column(name="rating_after")
+                          public Long ratingAfter;
+                      
+                          @Column(name="is_deleted")
+                          public Boolean isDeleted;
+                      
+                          @Column(name = "is_favourite")
+                          public Boolean isFavourite;
+                      
+                          @ManyToOne
+                          @JoinColumn(name = "patient_id", insertable = false, updatable = false, referencedColumnName = "id")
+                          public Patient patients;
+                          
+                          ... ommited
+                  </code>
+
+                  <h5 class="is-size-6-mobile is-size-5-tablet is-link"> ActivityCreationRepository.java - Repository</h5>
+                  <code class="java">
+                      @Repository
+                      public class ActivityCreationRepository extends JdbcRepository implements IActivityCreationRepository {
+                      
+                          public void createActivity(long patientID, String activityName, Date date) {
+                              Connection connection = null;
+                      
+                              try {
+                                  connection = getDatabaseConnection();
+                      
+                                  PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO activities (activity_name, activity_date, is_completed, rating_before, is_deleted, patient_id, rating_after, is_favourite) VALUES(?, ?, false, null, false, ?, null, null);");
+                      
+                                  preparedStatement.setString(1, activityName);
+                                  preparedStatement.setTimestamp(2, new java.sql.Timestamp(date.getTime())); //Don't use 'setDate(...)' here because this will only include the date, not the time.
+                                  preparedStatement.setLong(3, patientID);
+                      
+                                  preparedStatement.executeUpdate();
+                              } catch (SQLException exception) {
+                      
+                              } finally {
+                                  try {
+                                      if(connection != null) {
+                                          connection.close();
+                                      }
+                                  } catch (SQLException exception) {
+                      
+                                  }
+                              }
+                          }
+                      }
+                  </code>
+		        </pre>
+	        </div>
+     </div>
+     <div class="column is-full">
+        <button type="button" class="collapsible button is-large">
+            <span class="codeSpan icon is-medium">
+              <i class="fas fa-code"></i>
+            </span>
+            Web Sockets - Moodi
+          </button>
+          <div class="codeContent">
+          <pre>
+            <h5 class="is-size-6-mobile is-size-5-tablet is-link"> MissedActivityLogger.java  </h5>
+            <code class="java">
+                @Component
+                public class MissedActivityLogger {
+                
+                    private ActivityRepository activityRepository;
+                    private SimpMessagingTemplate template;
+                
+                
+                    @Autowired
+                    public MissedActivityLogger(ActivityRepository aRepo, SimpMessagingTemplate aTemplate) {
+                        activityRepository = aRepo;
+                        template = aTemplate;
+                    }
+                
+                    @Scheduled(
+                            cron = "0 0/1 * * * *")
+                    @Transactional
+                    public void logActivityReminder(){
+                        LocalDateTime missed = LocalDateTime.now().minus(2, ChronoUnit.HOURS).withNano(0).withSecond(0);
+                
+                
+                
+                        System.out.println("Activities at " + missed.withNano(0).withSecond(0));
+                        for (Activities a : activityRepository.findActivitiesByActivityDateEqualsAndIsCompletedAndIsDeleted(missed, false, false)) {
+                
+                
+                            System.out.println(a.getName());
+                
+                
+                            template.convertAndSend("/topic/missed", a.getId());
+                
+                        }
+                    }
+                }
+          </code>
+          <h5 class="is-size-6-mobile is-size-5-tablet is-link"> WebSocketConfig - Entity</h5>
+          <code class="java">
+              @Configuration
+              @EnableWebSocketMessageBroker
+              public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
+              
+                  @Override
+                  public void configureMessageBroker(MessageBrokerRegistry config) {
+                      config.enableSimpleBroker("/topic");
+                      config.setApplicationDestinationPrefixes("/app");
+                  }
+              
+                  @Override
+                  public void registerStompEndpoints(StompEndpointRegistry registry) {
+                      registry.addEndpoint("/gs-guide-ActivityNotifier").withSockJS();
+                  }
+              
+              }
+          </code>
+          </pre>
+      </div>
+    </div>
+  </div>
+          
+          
+</div>
+</section>
+   
+     
+      <script src="js/slider.js"></script>
+      <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+      <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+          
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("activeCodeSection");
+              var content = this.nextElementSibling;
+              if (content.style.maxHeight){
+                content.style.maxHeight = null;
+              } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+              }
+            });
+          }
+          
+          </script>
+
+
       
 </body>
 
